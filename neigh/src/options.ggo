@@ -1,0 +1,14 @@
+package "neigh"
+version "1.0"
+versiontext "Copyright (c) 2018 Giorgia Adorni, Elia Cereda"
+purpose "Neighbour Joining algorithm for the creation of Phylogenetic Trees."
+args "--unamed-opts=INPUT_FILES"
+
+option "verbose"           v "Print additional details"               flag off
+
+section "Main Options"
+# Options
+option "print-matrices"    m "Print intermediate distance matrices"   flag off
+option "print-trees"       t "Print trees"                            enum values="none", "final", "all" default="final" optional
+option "graphviz-trees"    g "Generate Graphviz trees"                enum values="none", "final", "all" default="none"  optional
+option "output-dir"        o "Graphviz output directory"              string typestr="path"              default="."     optional

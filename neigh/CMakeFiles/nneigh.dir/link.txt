@@ -1,0 +1,1 @@
+/usr/bin/cc -fPIC  -Wall -Wextra -Wpedantic  -shared -Wl,-soname,libnneigh.so -o libnneigh.so CMakeFiles/nneigh.dir/src/main.c.o CMakeFiles/nneigh.dir/src/dist_matrix.c.o CMakeFiles/nneigh.dir/src/io.c.o CMakeFiles/nneigh.dir/src/neighbour_joining.c.o CMakeFiles/nneigh.dir/src/phylogenetic_tree.c.o CMakeFiles/nneigh.dir/src/utilities.c.o 

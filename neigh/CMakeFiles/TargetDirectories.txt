@@ -1,0 +1,4 @@
+/home/master/projects/neigh/CMakeFiles/rebuild_cache.dir
+/home/master/projects/neigh/CMakeFiles/edit_cache.dir
+/home/master/projects/neigh/CMakeFiles/neigh.dir
+/home/master/projects/neigh/CMakeFiles/nneigh.dir
