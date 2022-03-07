@@ -1,7 +1,40 @@
 # SaAlign
 
 ## Libraries that Need to be Pre Installed
-**pyspark**---must be compatible with the corresponding Python version to run
+[pyspark](https://spark.apache.org/docs/latest/api/python/) ---must be compatible with the corresponding Python version to run
+
+PySpark is an interface for Apache Spark in Python. It not only allows you to write Spark applications using Python APIs, but also provides the PySpark shell for interactively analyzing your data in a distributed environment. PySpark supports most of Spark’s features such as Spark SQL, DataFrame, Streaming, MLlib (Machine Learning) and Spark Core.
+
+**An example (Word Count) using PySpark**
+
+```py
+import sys
+from operator import add
+
+from pyspark.sql import SparkSession
+
+
+if __name__ == "__main__":
+    if len(sys.argv) != 2:
+        print("Usage: wordcount <file>", file=sys.stderr)
+        sys.exit(-1)
+
+    spark = SparkSession\
+        .builder\
+        .appName("PythonWordCount")\
+        .getOrCreate()
+
+    lines = spark.read.text(sys.argv[1]).rdd.map(lambda r: r[0])
+    counts = lines.flatMap(lambda x: x.split(' ')) \
+                  .map(lambda x: (x, 1)) \
+                  .reduceByKey(add)
+    output = counts.collect()
+    for (word, count) in output:
+        print("%s: %i" % (word, count))
+
+    spark.stop()
+
+```
 
 ## Instruction
 1. Downlosd ***SaAlign_package-1.0.tar.gz*** from website： https://github.com/YangyiLab/SaAlign.
